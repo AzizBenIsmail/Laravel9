@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,13 @@ Route::get('/homeController/view',[HomeController::class,'afficher_une_page']);
 Route::get('/homeController/data',[HomeController::class,'envoyer_des_données']);
 
 Route::get('/homeController/{message}', [HomeController::class,'show']);
+
+Route::get('/form', function () {
+    return view('form');
+});
+
+Route::post('/process-form', function (Request $request) {
+    $age = (int)$request->input('age');
+
+    echo "$age, success Formulaire soumis avec succès.";
+})->name('process-form')->middleware('verifAge');
