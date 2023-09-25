@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Database\Seeders\PromoSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call(PromoSeeder::class);
     }
 }
